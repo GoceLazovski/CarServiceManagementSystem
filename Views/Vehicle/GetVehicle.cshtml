@@ -1,0 +1,150 @@
+﻿@model Services.ViewModels.VehicleViewModel
+
+@{
+    ViewData["Title"] = "GetVehicle";
+}
+
+<h1>Vehicle</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2" hidden>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-10" hidden>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RegistrationNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RegistrationNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CarModel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CarModel)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EngineNo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EngineNo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ChassisNo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ChassisNo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.GearSrNo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GearSrNo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.GearBoxSrNo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GearBoxSrNo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TurboSrNo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TurboSrNo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Owner)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OwnerName)
+        </dd>
+        <dt class="col-sm-2" hidden>
+            @Html.DisplayNameFor(model => model.CustomerId)
+        </dt>
+        <dd class="col-sm-10" hidden>
+            @Html.DisplayFor(model => model.CustomerId)
+        </dd>
+    </dl>
+    <h4>Job Cards</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Odometer Reading</th>
+                <th>Fuel</th>
+                <th>Date In</th>
+                <th>Date Out Estimated</th>
+                <th>Date Out Actual</th>
+                <th hidden>Customer Comment</th>
+                <th hidden>Job Description</th>
+                <th>Status</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.JobCards)
+            {
+                <tr>
+                    <td hidden>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OdometerReading)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fuel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateIn)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateOutEstimated)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateOutActual)
+                    </td>
+                    <td hidden>
+                        @Html.DisplayFor(modelItem => item.CustomerComment)
+                    </td>
+                    <td hidden>
+                        @Html.DisplayFor(modelItem => item.JobDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        <a asp-controller="JobCard" asp-action="UpdateJob" asp-route-id="@item.Id">Edit</a> 
+                    </td>
+                    <td>
+                        <a asp-controller="JobCard" asp-action="GetJobCard" asp-route-id="@item.Id">Details</a> 
+                    </td>
+                    <td>
+                        <a asp-controller="JobCard" asp-action="DeleteJob" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    <a asp-controller="JobCard" asp-action="InsertJob" asp-route-vehicleId="@(Model.Id)"><input type="submit" value="Add Job" class="btn btn-info" /></a>
+    <a asp-action="UpdateVehicle" asp-route-id="@Model.Id"><input type="submit" value="Edit Vehicle" class="btn btn-light" /></a>
+    <a asp-action="DeleteVehicle" asp-route-id="@Model.Id"><input type="submit" value="Delete Vehicle" class="btn btn-light" /></a>
+    <a asp-controller="Customer" asp-action="GetCustomer" asp-route-Id="@Model.CustomerId"><input type="submit" value="Back to Customer" class="btn btn-light" /></a>
+</div>

@@ -1,0 +1,92 @@
+﻿@model Services.ViewModels.SparePartsViewModel
+
+@{
+    ViewData["Title"] = "DeletePart";
+}
+
+<h1>Delete Part</h1>
+
+<h3>Are you sure you want to delete this part?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ItemCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ItemCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ManufacturersCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ManufacturersCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ManufacturersName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ManufacturersName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LeadTimeDelivery)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LeadTimeDelivery)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.QuantityInStock)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.QuantityInStock)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UnitPriceSales)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UnitPriceSales)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UnitPricePurchase)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UnitPricePurchase)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Discount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Discount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VatRate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VatRate)
+        </dd>
+    </dl>
+
+    <form asp-action="DeletePart">
+        <input type="submit" value="Delete" class="btn btn-danger" />
+    </form>
+    <p></p>
+    <a asp-action="Index"><input type="submit" value="Back to List" class="btn btn-light" /></a>
+</div>

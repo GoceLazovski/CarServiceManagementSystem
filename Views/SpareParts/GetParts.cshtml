@@ -1,0 +1,95 @@
+﻿@model Services.ViewModels.SparePartsViewModel
+
+@{
+    ViewData["Title"] = "GetParts";
+}
+
+<h1>Parts</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2" hidden>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-10" hidden>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ItemCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ItemCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ManufacturersCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ManufacturersCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ManufacturersName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ManufacturersName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LeadTimeDelivery)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LeadTimeDelivery)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.QuantityInStock)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.QuantityInStock)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UnitPriceSales)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UnitPriceSales)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UnitPricePurchase)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UnitPricePurchase)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Discount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Discount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VatRate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VatRate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SparePartImage)
+        </dt>
+        <dd>
+            <img src="@ViewBag.ImageDataUrl" width="150" height="150"/>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="UpdatePart" asp-route-id="@Model.Id"><input type="submit" value="Edit" class="btn btn-light" /></a> 
+    <a asp-action="Index"><input type="submit" value="Back to List" class="btn btn-light" /></a>
+</div>

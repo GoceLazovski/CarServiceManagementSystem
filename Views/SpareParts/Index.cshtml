@@ -1,0 +1,113 @@
+﻿@model IEnumerable<Services.ViewModels.SparePartsViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Parts</h1>
+
+<form asp-controller="SpareParts" asp-action="Index" method="get">
+    <p>
+        Description: <input type="text" name="SearchString">
+        <input type="submit" value="Search" class="btn btn-light" />
+    </p>
+</form>
+
+<p>
+    <a asp-controller="SpareParts" asp-action="InsertPart"><input type="submit" value="Create New" class="btn btn-light" /></a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ManufacturersCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ManufacturersName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeadTimeDelivery)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuantityInStock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitPriceSales)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitPricePurchase)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VatRate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ManufacturersCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ManufacturersName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LeadTimeDelivery)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuantityInStock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitPriceSales)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitPricePurchase)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Discount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VatRate)
+                </td>
+                <td>
+                    <a asp-action="UpdatePart" asp-route-id="@item.Id">Edit</a> 
+                </td>
+                <td>
+                    <a asp-action="GetParts" asp-route-id="@item.Id">Details</a> 
+                </td>
+                <td>
+                    <a asp-action="DeletePart" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

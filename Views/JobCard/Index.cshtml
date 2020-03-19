@@ -1,0 +1,111 @@
+﻿@model IEnumerable<Services.ViewModels.JobCardViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Jobs</h1>
+
+<form asp-controller="JobCard" asp-action="Index" method="get">
+    <p>
+        Descripton: <input type="text" name="SearchString">
+        <input type="submit" value="Search" />
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OdometerReading)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fuel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateIn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOutEstimated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOutActual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerComment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th hidden>
+                @Html.DisplayNameFor(model => model.EmployeeId)
+            </th>
+            <th hidden>
+                @Html.DisplayNameFor(model => model.VehicleId)
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OdometerReading)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fuel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateIn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOutEstimated)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOutActual)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerComment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td hidden>
+                    @Html.DisplayFor(modelItem => item.EmployeeId)
+                </td>
+                <td hidden>
+                    @Html.DisplayFor(modelItem => item.VehicleId)
+                </td>
+                <td>
+                    <a asp-action="UpdateJob" asp-route-id="@item.Id">Edit</a> 
+                </td>
+                <td>
+                    <a asp-action="GetJobCard" asp-route-id="@item.Id">Details</a> 
+                </td>
+                <td>
+                    <a asp-action="DeleteJob" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

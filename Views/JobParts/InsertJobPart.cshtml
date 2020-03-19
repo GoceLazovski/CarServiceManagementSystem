@@ -1,0 +1,46 @@
+﻿@model Services.ViewModels.JobPartsViewModel
+
+
+@{
+    ViewData["Title"] = "InsertJobPart";
+}
+
+<h1>Insert Part To Job</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="InsertJobPart">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="JobCardId" class="form-control" hidden />
+                <span asp-validation-for="JobCardId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SparePart" class="control-label"></label>
+                @Html.DropDownListFor(p => p.SparePartId,
+                       new SelectList(
+                       Model.SparePartsList.Select(x => new { Value = x.Id, Text = x.Name }),
+                    "Value",
+                    "Text"))
+                <span asp-validation-for="SparePartId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuantityInstalled" class="control-label"></label>
+                <input asp-for="QuantityInstalled" class="form-control" />
+                <span asp-validation-for="QuantityInstalled" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="JobCard" asp-action="GetJobCard" asp-route-id="@Model.JobCardId"><input type="submit" value="Back to Job" class="btn btn-light" /></a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

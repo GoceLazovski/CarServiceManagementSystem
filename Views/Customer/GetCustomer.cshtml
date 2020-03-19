@@ -1,0 +1,134 @@
+﻿@model Services.ViewModels.CustomerViewModel
+
+@{
+    ViewData["Title"] = "GetCustomer";
+}
+
+<h1>Customer</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2" hidden>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-10" hidden>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+    </dl>
+    <h4>
+        @Html.DisplayNameFor(model => model.Vehicles)
+    </h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Car Model
+                </th>
+                <th>
+                    Registration Number
+                </th>
+                <th>
+                    Engine Number
+                </th>
+                <th>
+                    Chassis No
+                </th>
+                <th>
+                    Year
+                </th>
+                <th>
+                    Gear Serial Number
+                </th>
+                <th>
+                    Gear Box Serial Number
+                </th>
+                <th>
+                    Turbo Serial Number
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Vehicles)
+            {
+                <tr>
+                    <td hidden>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CarModel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RegistrationNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EngineNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ChassisNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Year)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GearSrNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GearBoxSrNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TurboSrNo)
+                    </td>
+                    <td>
+                        <a asp-controller="Vehicle" asp-action="UpdateVehicle" asp-route-id="@item.Id">Edit</a> 
+                    </td>
+                    <td>
+                        <a asp-controller="Vehicle" asp-action="GetVehicle" asp-route-id="@item.Id">Details</a> 
+                    </td>
+                    <td>
+                        <a asp-controller="Vehicle" asp-action="DeleteVehicle" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    <a asp-controller="Vehicle" asp-action="InsertVehicle" asp-route-customerId="@(Model.Id)">
+        <input type="submit" value="Add Vehicle" class="btn btn-info" />
+    </a>
+    <a asp-action="UpdateCustomer" asp-route-id="@Model.Id"><input type="submit" value="Edit Customer" class="btn btn-light" /></a>
+    <a asp-action="DeleteCustomer" asp-route-id="@Model.Id"><input type="submit" value="Delete Customer" class="btn btn-light" /></a>
+    <a asp-action="Index"><input type="submit" value="Back to List" class="btn btn-light" /></a>
+</div>
+
+<div>
+
+</div>

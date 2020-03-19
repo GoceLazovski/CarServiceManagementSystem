@@ -1,0 +1,71 @@
+﻿@model Services.ViewModels.VehicleViewModel
+
+@{
+    ViewData["Title"] = "InsertVehicle";
+}
+
+<h1>Insert Vehicle</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="InsertVehicle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="RegistrationNumber" class="control-label"></label>
+                <input asp-for="RegistrationNumber" class="form-control" />
+                <span asp-validation-for="RegistrationNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CarModel" class="control-label"></label>
+                <input asp-for="CarModel" class="form-control" />
+                <span asp-validation-for="CarModel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EngineNo" class="control-label"></label>
+                <input asp-for="EngineNo" class="form-control" />
+                <span asp-validation-for="EngineNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ChassisNo" class="control-label"></label>
+                <input asp-for="ChassisNo" class="form-control" />
+                <span asp-validation-for="ChassisNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Year" class="control-label"></label>
+                <input asp-for="Year" class="form-control" />
+                <span asp-validation-for="Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GearSrNo" class="control-label"></label>
+                <input asp-for="GearSrNo" class="form-control" />
+                <span asp-validation-for="GearSrNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GearBoxSrNo" class="control-label"></label>
+                <input asp-for="GearBoxSrNo" class="form-control" />
+                <span asp-validation-for="GearBoxSrNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TurboSrNo" class="control-label"></label>
+                <input asp-for="TurboSrNo" class="form-control" />
+                <span asp-validation-for="TurboSrNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="CustomerId" class="form-control" hidden accept="{CustomerId}" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Customer" asp-action="GetCustomer" asp-route-id="@Model.CustomerId"><input type="submit" value="Back to Customer" class="btn btn-light" /></a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

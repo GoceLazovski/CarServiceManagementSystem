@@ -1,0 +1,35 @@
+﻿@model Services.ViewModels.JobPartsViewModel
+
+@{
+    ViewData["Title"] = "GetJobPart";
+}
+
+<h1>Job Part</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.JobCard)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.JobCard.JobDescription)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SparePart)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SparePart.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.QuantityInstalled)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.QuantityInstalled)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-controller="JobParts" asp-action="UpdateJobPart" asp-route-jobId="@Model.JobCardId" , asp-route-partId="@Model.SparePartId"><input type="submit" value="Edit Job" class="btn btn-light" /></a>
+    <a asp-controller="JobCard" asp-action="GetJobCard" asp-route-id="@Model.JobCardId"><input type="submit" value="Back to Job" class="btn btn-light" /></a>
+</div>
